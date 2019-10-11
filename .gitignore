@@ -1,0 +1,9 @@
+node_modules
+.serverless
+dist
+.cache
+.idea
+*.iml
+/.terraform
+/.terraform/**.tf
+*terraform*
