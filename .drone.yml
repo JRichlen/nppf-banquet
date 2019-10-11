@@ -2,17 +2,17 @@
 kind: pipeline
 name: verify
 steps:
-  - name: npm_auth
+  - name: credentials
     image: robertstettner/drone-npm-auth
-    username: jrichlen
-    token: $$NPM_TOKEN
+    token:
+      from_secret: NPM_TOKEN
 
   - name: install
     image: node:10.15.3
     commands:
       - npm ci
     depends_on:
-      - npm_auth
+      - credentials
 
   - name: verify
     image: node:10.15.3
