@@ -2,8 +2,9 @@
 kind: pipeline
 name: verify
 steps:
-  - name: npm_auth:
+  - name: npm_auth
     image: robertstettner/drone-npm-auth
+    username: jrichlen
     token: $$NPM_TOKEN
 
   - name: install
