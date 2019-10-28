@@ -4,7 +4,7 @@ provider "aws" {
 }
 
 module "site-main" {
-  source = "git@github.com:JRichlen/cloudfront-s3-route53.git"
+  source = "https://github.com/JRichlen/cloudfront-s3-route53.git"
 
   environment = "prod"
   name = "nppf-banquet"
