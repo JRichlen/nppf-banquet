@@ -1,17 +1,15 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { Client } from '../src/client';
+import React from "react";
+import renderer from "react-test-renderer";
+import { Client } from "../src/client";
 
-describe('Client', () => {
-    test('should render', () => {
+describe("Client", () => {
+  test("should render", () => {
     // when
-        const component = renderer.create(<Client/>);
+    const component = renderer.create(<Client />);
 
-        // then
-        expect(component.toJSON()).toMatchInlineSnapshot(`
-      <div
-        className="makeStyles-root-1"
-      >
+    // then
+    expect(component.toJSON()).toMatchInlineSnapshot(`
+      <div>
         <header
           className="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary"
         >
@@ -19,8 +17,7 @@ describe('Client', () => {
             className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
           >
             <button
-              aria-label="menu"
-              className="MuiButtonBase-root MuiIconButton-root makeStyles-menuButton-2 MuiIconButton-colorInherit MuiIconButton-edgeStart"
+              className="MuiButtonBase-root MuiIconButton-root"
               disabled={false}
               onBlur={[Function]}
               onDragLeave={[Function]}
@@ -56,7 +53,7 @@ describe('Client', () => {
               />
             </button>
             <h6
-              className="MuiTypography-root makeStyles-title-3 MuiTypography-h6"
+              className="MuiTypography-root MuiTypography-h6"
             >
               NPPF Banquet
             </h6>
@@ -64,5 +61,5 @@ describe('Client', () => {
         </header>
       </div>
     `);
-    });
+  });
 });
