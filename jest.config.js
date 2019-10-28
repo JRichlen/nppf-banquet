@@ -1,9 +1,9 @@
-// For a detailed explanation regarding each configuration property, visit:
-// https://jestjs.io/docs/en/configuration.html
 
 module.exports = {
     clearMocks: true,
     coverageDirectory: 'coverage',
+    setupFiles: ['./test/jest-setup.js'],
+    snapshotSerializers: ['enzyme-to-json/serializer'],
     // eslint-disable-next-line no-useless-escape
     testRegex: 'test/.*\.spec\.js$'
 };

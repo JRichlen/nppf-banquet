@@ -1,13 +1,14 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import { Header } from "../../src/components/header";
+import React from 'react';
+import {shallow} from 'enzyme';
+import { Header } from '../../src/components/header';
+import toJson from 'enzyme-to-json';
 
 describe("Client", () => {
   test("should render", () => {
     // when
-    const component = renderer.create(<Header />);
+    const component = shallow(<Header />);
 
     // then
-    expect(component.toJSON()).toMatchSnapshot();
+    expect(toJson(component)).toMatchSnapshot();
   });
 });
