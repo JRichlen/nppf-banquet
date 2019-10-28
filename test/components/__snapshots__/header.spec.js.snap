@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Client should render 1`] = `
+<div>
+  <WithStyles(ForwardRef(AppBar))
+    position="static"
+  >
+    <WithStyles(ForwardRef(Toolbar))>
+      <WithStyles(ForwardRef(IconButton))>
+        <MenuIcon />
+      </WithStyles(ForwardRef(IconButton))>
+      <WithStyles(ForwardRef(Typography))
+        variant="h6"
+      >
+        NPPF Banquet
+      </WithStyles(ForwardRef(Typography))>
+    </WithStyles(ForwardRef(Toolbar))>
+  </WithStyles(ForwardRef(AppBar))>
+</div>
+`;
