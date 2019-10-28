@@ -1,16 +1,48 @@
 ---
 kind: pipeline
-name: verify
+name: pr
 steps:
   - name: install
     image: node:10.15.3
     commands:
       - npm ci
 
-  - name: verify
+  - name: lint
     image: node:10.15.3
     commands:
       - npm run lint
+    depends_on:
+      - install
+
+  - name: test
+    image: node:10.15.3
+    commands:
+      - npm run test
+    depends_on:
+      - install
+
+trigger:
+  event: pull_request
+
+---
+kind: pipeline
+name: master
+steps:
+  - name: install
+    image: node:10.15.3
+    commands:
+      - npm ci
+
+  - name: lint
+    image: node:10.15.3
+    commands:
+      - npm run lint
+    depends_on:
+      - install
+
+  - name: test
+    image: node:10.15.3
+    commands:
       - npm run test
     depends_on:
       - install
@@ -20,10 +52,16 @@ steps:
     commands:
       - npm run build
     depends_on:
-      - verify
+      - install
 
   - name: deploy
     image: jmccann/drone-terraform:1
     plan: false
     depends_on:
       - build
+      - lint
+      - test
+
+trigger:
+  branch: master
+  event: push
